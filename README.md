@@ -2,7 +2,7 @@
 - - - -
 #### 请在浏览器内打开
 
-**:arrow_double_down: [Android v3.3.1.apk](https://github.com/shendeng8/vpn/raw/main/shendeng-v3.3.1-30.apk)**
+**:arrow_double_down: [Android v4.0.0.apk](https://github.com/shendeng8/vpn/raw/main/shendeng-v4.0.0-31.apk)**
 
 **:arrow_double_down: [iOS网页版(建议优选海外商店下载）](https://shendeng8.github.io/vpn/appstore/index.html?channel=GitHub)** 
 
