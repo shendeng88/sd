@@ -10,6 +10,6 @@
 
 **:arrow_double_down: [Windows V2.9.0.exe](https://github.com/shendeng88/sd/releases/download/shendeng-latest-exe/shendeng-V2.9.0-23.exe)**
 
-**:arrow_double_down: [macOS v2.1.5.pkg](https://github.com/shendeng88/sd/raw/refs/heads/main/file/shendeng-v2.1.5-65.pkg)**
+**:arrow_double_down: [macOS V2.2.0.pkg](https://github.com/shendeng88/sd/releases/download/shendeng-latest-pkg/shendeng-V2.2.0-70.pkg)**
 
 - - - -
