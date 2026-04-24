@@ -190,7 +190,7 @@
     /*position: initial;*/
     overflow: hidden;
     bottom: 0px !important;
-    top: 50px !important;
+    top: 0px !important;
     transition: all .2s;
 }
 

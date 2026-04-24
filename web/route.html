@@ -1,25 +1,34 @@
 <div class="layuimini-container layuimini-page-anim">
   <div class="layuimini-main-route">
-    <div class="top">
-      <div class="title">
+    <div class="route-hero">
+      <div class="hero-kicker">Global Route Center</div>
+      <div class="hero-title">高速专线稳定接入</div>
+      <div class="hero-desc">
+        <div>Outline 已在中国区下架，已安装用户仍可继续使用，未安装用户建议优先下载神灯 iOS 客户端。</div>
+        <div>web 端允许最多三个设备登录，同一时间仅允许一个设备连接，请勿滥用线路。</div>
+      </div>
+      <button class="toHelp">查看下载教程</button>
+    </div>
+
+    <div class="route-switch">
+      <div class="switch-title">线路分组</div>
+      <div class="switch-tabs">
         <button class="super">SVIP线路</button>
         <button class="normal select">VIP线路</button>
       </div>
     </div>
-    <div style="padding: 16px 19px 0 19px;color: red;">温馨提示: 中国区AppStore已下架Outline，已经安装Outline的仍可使用，请不要卸载或尽快迁移至神灯IOS客户端<br/><button class="toHelp" style="color: #2468F2;font-weight: bold;">查看下载教程>></button></div>
+
     <div class="body svip"><ul></ul></div>
     <div class="body vip"><ul></ul></div>
 
     <div class="show">
-      <div>
+      <div class="dialog-card">
         <button class="close"><img src="images/close.png"/></button>
-        <img src="images/icon-route.png">
+        <div class="dialog-icon"><img src="images/icon-route.png"></div>
         <div class="title">线路信息</div>
-        <div class="sign"><span style="-webkit-line-clamp: 4;overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;"></span></div>
-        <a href="javascript:;" onclick="outlineDownload()">
-          <div style="height: 40px;line-height: 40px;width: 198px;background-color: #2468F2;margin: 24px auto 0 auto;color: white;">下载outline</div>
-        </a>
-        <button class="copy" style="margin-top: 12px;">复制并打开outline</button>
+        <div class="sign"><span></span></div>
+        <a href="javascript:;" onclick="outlineDownload()" class="download-outline">下载 Outline</a>
+        <button class="copy">复制并打开 Outline</button>
       </div>
     </div>
   </div>
@@ -33,8 +42,8 @@
             table = layui.table,
             miniPage = layui.miniPage;
 
-    var select = $('div.layuimini-main-route .top').find("button");
-    $('div.layuimini-main-route .top button').on("click",function () {
+    var select = $('div.layuimini-main-route .switch-tabs').find("button");
+    $('div.layuimini-main-route .switch-tabs button').on("click",function () {
       select.removeClass('select');
       $(this).addClass('select');
 
@@ -65,7 +74,7 @@
     var timestamp=parseInt(new Date().getTime()/1000);
 
     if (userInfo.vip_expire_time > timestamp){
-      $(".layuimini-main-route .top .title").hide();
+      $(".layuimini-main-route .route-switch").hide();
       $('div.layuimini-main-route .vip').hide();
       $('div.layuimini-main-route .svip').show();
     }
@@ -93,7 +102,8 @@
       }
 
       if (!isReset){
-        resetRoute();
+        resetRoute(routeInfo.vip,false);
+        resetRoute(routeInfo.svip,true);
       }
     };
 
@@ -140,11 +150,23 @@
             let useStyle = "";
             layui.each(useRouteInfo, function (index2, item2) {
               if (index2 == item.id && timestamp - item2.cache_ts < 300) {
-                // useStyle = "use";
+                useStyle = "use";
                 return true;
               }
             });
-            html += `<li id="${item.id}" svip='${isSvip}'><div class="fixed ${useStyle}"></div><div class="route-body"><div><img src="${item.image_url}"><span class="name">${item.name}</span></div><div class="route-detail" value="${item.id}">${item.id==500 ? '重置线路':'获取线路'}</div></div> </li>`;
+            if(item.id==500){
+              item.image_url = "./images/icon-reset.png"
+            }
+            html += `<li id="${item.id}" svip="${isSvip}">
+              <div class="fixed ${useStyle}">${useStyle ? '当前线路' : ''}</div>
+              <div class="route-body">
+                <div class="route-meta">
+                  <img src="${item.image_url}">
+                  <span class="name">${item.name}</span>
+                </div>
+                <div class="route-detail" value="${item.id}">${item.id==500 ? '重置线路':'获取密钥'}</div>
+              </div>
+            </li>`;
           }
       });
       

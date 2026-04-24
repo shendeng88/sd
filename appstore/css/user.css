@@ -30,8 +30,8 @@
 .layuimini-main-user .body .route-desc div{color: #2468F2;cursor: pointer;}
 
 .layuimini-main-user .body ul li .fixed{position: absolute;width: 153px;height: 31px;margin-top: -7px;}
-.layuimini-main-user .body ul li{margin-bottom: 20px;background-color: white;font-size: 15px;position: relative;border: 1px solid #1e9fff;border-radius: 8px;margin-top: 15px;}
-.layuimini-main-user .body ul li .route-body{padding: 19px;color: #2A2C2E;display: flow-root;}
+.layuimini-main-user .body ul li{margin-bottom: 20px;font-size: 15px;position: relative;border: 1px solid #f2d7b3;border-radius: 8px;margin-top: 15px;}
+.layuimini-main-user .body ul li .route-body{padding: 19px;color: #E5B778;display: flow-root;}
 .layuimini-main-user .body ul li .route-body img{height: 21px;margin-right: 18px;}
 .layuimini-main-user .body ul li .route-body div{float: left;}
 .layuimini-main-user .body ul li .route-body div:last-child{float: right}

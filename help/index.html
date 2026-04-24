@@ -28,6 +28,49 @@
     <link rel="stylesheet" href="./css/mescroll.min.css" media="all">
     <link rel="apple-touch-icon" sizes="108x108" href="./images/icon-cp.png">
     <link rel="icon" href="./favicon.ico">
+    <style>
+        :root {
+            --sd-bg: #1c1e28;
+            --sd-bg-soft: #242735;
+            --sd-panel: rgba(33, 36, 49, 0.92);
+            --sd-panel-soft: rgba(39, 43, 58, 0.82);
+            --sd-border: rgba(229, 183, 120, 0.18);
+            --sd-border-strong: rgba(229, 183, 120, 0.3);
+            --sd-text: #f7f2e8;
+            --sd-muted: #b8b2a5;
+            --sd-accent: #e5b778;
+            --sd-accent-deep: #c89443;
+        }
+
+        html,
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(229, 183, 120, 0.14), transparent 24%),
+                radial-gradient(circle at 85% 12%, rgba(86, 120, 255, 0.12), transparent 22%),
+                linear-gradient(180deg, #171922 0%, #1c1e28 100%) !important;
+            color: var(--sd-text);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+            pointer-events: none;
+        }
+
+        .layui-layout-admin .layui-body,
+        .layuimini-container,
+        .layuimini-page-anim,
+        .mescroll,
+        .layuimini-content-page {
+            background: transparent !important;
+        }
+    </style>
     <!--[if lt IE 9]>
     <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>

@@ -1,34 +1,52 @@
 
 <div class="layuimini-container layuimini-page-anim">
   <div class="layuimini-main-buy">
-    <div class="top">
-      <div class="title">
-        <button class="normal select">普通会员VIP</button>
-        <button class="super">超级会员SVIP</button>
+    <div class="buy-hero">
+      <div class="hero-kicker">Premium Membership</div>
+      <div class="hero-title">选择你的全球加速方案</div>
+      <div class="hero-desc">
+        <div>覆盖多协议、多区域节点与流媒体场景，兼顾稳定性、速度与隐私保护。</div>
+        <div>支持 VIP 与 SVIP 两档方案，按需求升级，随时续费，到账状态可在个人中心查看。</div>
       </div>
     </div>
-    <div class="desc">
+
+    <div class="top">
+      <div class="switch-title">会员类型</div>
+      <div class="title">
+        <button class="normal select">VIP会员</button>
+        <button class="super">SVIP会员</button>
+      </div>
+    </div>
+
+    <div class="desc is-collapsed">
+      <div class="desc-head">
+        <div class="desc-title">会员权益</div>
+        <button class="desc-toggle" type="button">
+          <span class="toggle-text">展开</span>
+          <i class="fa fa-angle-down"></i>
+        </button>
+      </div>
       <div class="normal common" style="display: block;">
-        <div class="title">普通会员尊享特权</div>
+        <div class="title">VIP会员核心权益</div>
 
         <ul>
-          <li><img src="images/icon-safe.png"><span>数据安全</span></li>
+          <li><img src="images/icon-safe.png"><span>军事级加密</span></li>
           <li><img src="images/icon-share.png"><span>共享线路</span></li>
-          <li><img src="images/icon-earth.png"><span>多个出口地区</span></li>
-          <li><img src="images/icon-fast.png"><span>快速上网</span></li>
-          <li><img src="images/icon-lc.png"><span>流畅音频图片</span></li>
-          <li><img src="images/icon-bandwidth.png"><span>高速流量50G</span></li>
+          <li><img src="images/icon-earth.png"><span>多地区出口</span></li>
+          <li><img src="images/icon-fast.png"><span>高速连接</span></li>
+          <li><img src="images/icon-lc.png"><span>流媒体优化</span></li>
+          <li><img src="images/icon-bandwidth.png"><span>高速流量 50G</span></li>
         </ul>
       </div>
       <div class="super common" style="display: none;">
-        <div class="title">超级会员尊享特权</div>
+        <div class="title">SVIP会员旗舰权益</div>
         <ul>
-          <li><img src="images/icon-safe.png"><span>数据安全</span></li>
-          <li><img src="images/icon-dx.png"><span>SVIP独享线路</span></li>
-          <li><img src="images/icon-earth.png"><span>多个出口地区</span></li>
-          <li><img src="images/icon-fast.png"><span>快速上网</span></li>
-          <li><img src="images/icon-js.png"><span>极速音频图片</span></li>
-          <li><img src="images/icon-bandwidth.png"><span>高速流量100G</span></li>
+          <li><img src="images/icon-safe.png"><span>军事级加密</span></li>
+          <li><img src="images/icon-dx.png"><span>独享专线</span></li>
+          <li><img src="images/icon-earth.png"><span>全球地区覆盖</span></li>
+          <li><img src="images/icon-fast.png"><span>低延迟优先</span></li>
+          <li><img src="images/icon-js.png"><span>媒体加速</span></li>
+          <li><img src="images/icon-bandwidth.png"><span>高速流量 100G</span></li>
         </ul>
       </div>
     </div>
@@ -54,11 +72,11 @@
     </div>
 
     <div class="show">
-      <div>
+      <div class="dialog-card">
         <button class="close"><img src="images/close.png"/></button>
-        <img src="images/icon-buy.png">
+        <div class="dialog-icon"><img src="images/icon-buy.png"></div>
         <div class="title">支付成功？</div>
-        <div class="desc"><span>支付成功后，请在用户中心查看是否到账,如遇到到账慢问题，请5分钟后重新刷新.</span></div>
+        <div class="desc"><span>支付成功后请前往我的页面确认会员状态，如遇到账延迟，请等待 5 分钟后刷新重试。</span></div>
         <div class="bottom">
           <button class="cancel">未支付</button>
           <button class="success">已支付</button>
@@ -110,6 +128,12 @@
         $('div.layuimini-main-buy .svip').show();
         layui.sessionData('buy_tab', {key:"is_svip",value: 1});
       }
+    });
+
+    $(".layuimini-main-buy .desc-toggle").on("click", function () {
+      var desc = $(".layuimini-main-buy .desc");
+      desc.toggleClass("is-collapsed");
+      $(this).find(".toggle-text").text(desc.hasClass("is-collapsed") ? "展开" : "收起");
     });
 
     function updateSelect(isSvip){
@@ -386,24 +410,21 @@
             desc = "半年套餐";
             break;
           case 360:
+          case 365:
             desc = "年套餐";
             break;
         }
 
         let addDay = "";
         let discount = "";
-        let middleStyle = "";
-        let rightStyle = "";
         if(item.add_day>0){
             addDay = `+${item.add_day}天`;
         }
         if(item.price_discount_str!=""){
           discount = `限时${item.price_discount_str}折`;
-          middleStyle = "width: 48%;margin-left: 15px;";
-          rightStyle = "width: 19%;";
         }
         if(item.is_show==1) {
-          html += `<li style="padding: 25px 16px;" id="${item.id}" value="${item.money}" class="${selected}"><div class="left">${desc}<span style="color: red;margin-left: 2px;font-size: 12px;">${addDay}</span></div><div class="middle" style="${middleStyle}"><del>原价${CentToYuan(item.real_money)}</del><span style="color: red;font-size: 12px;margin-left: 5px;">${discount}</span></div><div class="right ${selected}" style="${rightStyle}">¥<span>${CentToYuan(item.money)}</span></div></li>`
+          html += `<li style="padding: 25px 16px;" id="${item.id}" value="${item.money}" class="${selected}"><div class="left">${desc}<span style="color: red;margin-left: 2px;font-size: 12px;">${addDay}</span></div><div class="middle"><del>原价${CentToYuan(item.real_money)}</del><span style="color: red;font-size: 12px;margin-left: 5px;">${discount}</span></div><div class="right ${selected}">¥<span>${CentToYuan(item.money)}</span></div></li>`
         }
       });
 
@@ -416,14 +437,25 @@
 
     function resetPayment(paymentList){
       let html = "";
+      let defaultIndex = 0;
+
+      layui.each(paymentList, function (index, item) {
+        let paymentCode = (item.payment || "").toUpperCase();
+        let paymentName = item.name || "";
+        if (paymentCode.indexOf("ALIPAY") > -1) {
+          defaultIndex = index;
+          return true;
+        }
+      });
+
       layui.each(paymentList,function (index,item) {
         let selected = "";
         let iconImage = "images/icon-no-select.png";
-        if(index == 0){
+        if(index == defaultIndex){
           selected = "selected";
           iconImage = "images/icon-select.png";
         }
-        html += `<li id="${item.payment}" isScan="${item.is_scan}" class="${selected}"><img src="${item.icon}"/><span>${item.name}</span><div><img src="${iconImage}"></div></li><div class="line"></div>`;
+        html += `<li id="${item.payment}" isScan="${item.is_scan}" class="${selected}"><img src="${item.icon}"/><span>${item.name}</span><div></div></li><div class="line"></div>`;
       });
 
       $(".layuimini-main-buy .payment ul").html(html);

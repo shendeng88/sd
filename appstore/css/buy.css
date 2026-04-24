@@ -24,7 +24,7 @@
 .layuimini-main-buy .content ul li div.selected{color: #2468F2;}
 .layuimini-main-buy .content ul li span.middle{margin-left: 80px;color: #B8B8B8;}
 .layuimini-main-buy .payment{margin-top: 7px;background-color: white;padding: 0 24px 12px 24px;}
-.layuimini-main-buy .payment .line{height: 1px;background: #EBEBEB;width: 100%;}
+/* .layuimini-main-buy .payment .line{height: 1px;background: #EBEBEB;width: 100%;} */
 .layuimini-main-buy .payment .title{font-size: 15px;color: #151413;font-weight: bold;line-height: 49px;height: 49px;}
 .layuimini-main-buy .payment ul li{padding: 14px 0;cursor: pointer;}
 .layuimini-main-buy .payment ul li img{height: 23px;}

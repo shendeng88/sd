@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Android 更新日志</title>
+<title>iOS 更新日志</title>
 <style>
   :root {
     --bg: #1c1e28;
     --panel: rgba(33, 36, 49, 0.9);
-    --panel-soft: rgba(33, 36, 49, 0.7);
     --text: #f7f2e8;
     --muted: #b8b2a5;
     --accent: #e5b778;
     --line: rgba(229, 183, 120, 0.22);
-    --line-strong: rgba(229, 183, 120, 0.34);
     --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
   }
 
@@ -52,21 +50,7 @@
     padding: 56px 0 72px;
   }
 
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 0 18px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    color: var(--accent);
-    background: rgba(229, 183, 120, 0.08);
-    text-decoration: none;
-  }
-
   h1 {
-    margin-top: 18px;
     font-size: clamp(2.3rem, 6vw, 3.6rem);
     letter-spacing: 0.04em;
   }
@@ -110,8 +94,7 @@
     box-shadow: 0 0 18px rgba(229, 183, 120, 0.45);
   }
 
-  .card,
-  .empty-card {
+  .card {
     padding: 22px 22px 20px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 22px;
@@ -134,21 +117,18 @@
     line-height: 1.8;
   }
 
-  .empty-card {
-    border-color: var(--line);
-    background: var(--panel-soft);
-  }
-
-  .empty-card strong {
-    display: block;
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin-top: 12px;
+    padding: 0 18px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
     color: var(--accent);
-    font-size: 1.1rem;
-  }
-
-  .empty-card p {
-    margin-top: 10px;
-    color: var(--muted);
-    line-height: 1.8;
+    background: rgba(229, 183, 120, 0.08);
+    text-decoration: none;
   }
 
   @media (max-width: 640px) {
@@ -161,13 +141,21 @@
 <body>
   <div class="container">
     <a class="back-link" href="../index.html">返回下载中心</a>
-    <h1>Android What's New</h1>
-    <p class="lead">这里展示 Android 客户端的版本更新与能力演进。后续 APK 版本变化、安装优化与连接能力增强都会持续同步。</p>
+    <h1>iOS What's New</h1>
+    <p class="lead">这里记录 iPhone / iPad 安装入口与访问体验的更新。后续 iOS 相关能力调整、安装引导优化与兼容性增强都会持续同步。</p>
 
     <div class="timeline">
-      <div class="empty-card">
-        <strong>更新记录持续同步中</strong>
-        <p>当前页面暂未补充公开版本条目，后续 Android 客户端的更新说明会统一发布在这里。</p>
+      <div class="item">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="meta">iOS Access Update · 2026-04-19</div>
+          <ul>
+            <li>新增 iOS 独立更新日志入口，便于集中查看版本变化。</li>
+            <li>优化 iOS 安装入口展示，支持首页自动识别设备后优先推荐。</li>
+            <li>补充海外 App Store 安装帮助链路，降低首次使用门槛。</li>
+            <li>强化移动端访问体验与页面适配，入口切换更顺滑。</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

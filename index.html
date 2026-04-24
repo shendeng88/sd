@@ -1,55 +1,489 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>下载中心</title>
-    <meta name="apple-mobile-web-app-title" content="神灯永久链接">
+    <title>神灯 VPN | Global Secure Access</title>
+    <meta name="description" content="神灯 VPN 面向全球用户，提供军事级加密、海量节点矩阵、多协议智能调度与全平台支持，自动识别设备并推荐最佳下载入口。">
+    <meta name="apple-mobile-web-app-title" content="神灯VPN">
+    <meta name="theme-color" content="#1C1E28">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="./image/touch-icon-iphone.png">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="style.css">
-    <!-- <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?6414b05bc3cb7eb810a23f7c76de2a84";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-    </script> -->
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>神灯VPN</h1>
-            <p>专业品质，又快又好用!</p>
-        </header>
-        
-        <section class="content">
-            <h2>请选择您的设备下载</h2>
-            <div class="download-buttons">
-                <div class="download-item">
-                    <a href="https://github.com/shendeng88/sd/raw/main/file/shendeng-v4.0.0-31.apk" id="downloadButton" class="button">Android v4.0.0.apk</a>
-                    <a href="./changelog/android.html" class="changelog-link">查看更新日志</a>
-                </div>
-                <a href="appstore/index.html?channel=GitHub" class="button">iOS 网页版（建议优选海外AppStore下载）</a>
-                <a href="https://shendeng88.github.io/sd/help/index.html" class="button">iOS 海外AppStore下载</a>
-                <div class="download-item">
-                    <a href="https://github.com/shendeng88/sd/releases/download/shendeng-latest-exe/shendeng-V3.0.0-24.exe" class="button">Windows V3.0.0.exe</a>
-                    <a href="./changelog/windows.html" class="changelog-link">查看更新日志</a>
-                </div>
-                <div class="download-item">
-                    <a href="https://github.com/shendeng88/sd/releases/download/shendeng-latest-pkg/shendeng-v2.3.0-71.pkg" class="button">macOS v2.3.0.pkg</a>
-                    <a href="./changelog/macos.html" class="changelog-link">查看更新日志</a>
-                </div>
-            </div>
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="#top" aria-label="神灯 VPN 首页">
+                <span class="brand-mark">SD</span>
+                <span class="brand-text">
+                    <strong>神灯 VPN</strong>
+    
+                </span>
+            </a>
 
-        </section>
-        
-        <!-- <footer class="footer">
-            <p>&copy; 2024 SDVPN. All Rights Reserved.</p>
-        </footer> -->
+            <nav class="nav-links" aria-label="主导航">
+                <a href="#features">核心能力</a>
+                <a href="#network">网络矩阵</a>
+                <a href="#downloads">客户端下载</a>
+                <a href="#support">服务保障</a>
+            </nav>
+
+            <a class="nav-cta" href="#downloads">立即下载</a>
+        </header>
+
+        <main>
+            <section class="hero" id="top">
+                <div class="hero-copy">
+                    <span class="eyebrow">Next-Gen Global VPN Infrastructure</span>
+                    <h1>更快、更稳、更隐私的全球安全连接体验</h1>
+                    <p class="hero-description">
+                        面向全球用户打造的高性能 VPN 产品，融合军事级加密、多协议智能协商、全球高速节点矩阵与真人客服体系。
+                        打开页面即可自动识别设备，为你推荐 Windows、macOS、Android 或 iOS 的最佳入口。
+                    </p>
+
+                    <div class="hero-actions">
+                        <a id="primaryDownload" class="button primary" href="#" data-platform-target="windows">推荐下载 Windows 客户端</a>
+                        <a class="button secondary" href="#downloads">查看全部平台</a>
+                    </div>
+
+                    <div class="detection-panel" aria-live="polite">
+                        <div class="detection-kicker">智能识别</div>
+                        <div class="detection-main">
+                            <strong id="detectedDevice">正在识别当前设备...</strong>
+                            <p id="recommendationText">即将为你推荐最适合当前系统的安装入口与更新日志。</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-chip">
+                            <strong>1000+</strong>
+                            <span>应用与场景加速支持</span>
+                        </div>
+                        <div class="stat-chip">
+                            <strong>24/7</strong>
+                            <span>真人客服在线守护</span>
+                        </div>
+                        <div class="stat-chip">
+                            <strong>Multi-Protocol</strong>
+                            <span>行业领先协议栈调度</span>
+                        </div>
+                        <div class="stat-chip">
+                            <strong>Global Nodes</strong>
+                            <span>全球多节点智能接入</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="orbital-stage">
+                        <div class="orbital-ring ring-a"></div>
+                        <div class="orbital-ring ring-b"></div>
+                        <div class="orbital-ring ring-c"></div>
+                        <div class="core-sphere">
+                            <span>Shield Core</span>
+                            <strong>256-bit</strong>
+                        </div>
+                        <div class="floating-tag tag-a">Smart Route</div>
+                        <div class="floating-tag tag-b">Global Relay</div>
+                        <div class="floating-tag tag-c">WireGuard+</div>
+                        <div class="floating-tag tag-d">Always-On</div>
+                    </div>
+                </div>
+            </section>
+
+            <noscript>
+                <div class="noscript-banner">当前浏览器已禁用脚本，无法自动识别设备。你仍可在下方手动选择平台下载。</div>
+            </noscript>
+
+            <section class="trust-strip">
+                <article class="trust-card">
+                    <span>01</span>
+                    <strong>军事级加密</strong>
+                    <p>从链路握手到数据传输全程加固，全方位守护个人隐私与业务访问安全。</p>
+                </article>
+                <article class="trust-card">
+                    <span>02</span>
+                    <strong>1000+ 应用支持</strong>
+                    <p>覆盖社交、影音、资讯、办公、游戏等海量场景，复杂网络下依然稳定畅通。</p>
+                </article>
+                <article class="trust-card">
+                    <span>03</span>
+                    <strong>协议引擎领先</strong>
+                    <p>多种协议智能切换与路由优选协同工作，在速度、抗干扰与稳定性之间自动取优。</p>
+                </article>
+            </section>
+
+            <section class="section" id="features">
+                <div class="section-intro">
+                    <span class="section-label">核心能力</span>
+                    <h2>不只是能连上，更是为高质量全球连接而生</h2>
+                    <p>从底层网络调度到终端体验，神灯 VPN 为速度、隐私、兼容性和服务响应做了全面强化。</p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3>Military-Grade Privacy Shield</h3>
+                        <p>强化隧道加密、DNS 保护、隐私链路隔离与风险拦截协同运行，敏感访问更安心。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>全平台无缝覆盖</h3>
+                        <p>Windows、macOS、Android、iOS 全面支持，同账号多端协作，日常与商务场景都能兼顾。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>智能线路秒级切换</h3>
+                        <p>动态识别网络波动，自动调度更优线路，在拥塞与跨境场景中依旧保持高速响应。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>全球节点矩阵</h3>
+                        <p>多区域节点联合调度，覆盖全球访问热点，跨洲连接更顺滑，业务触达更稳定。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>复杂环境强兼容</h3>
+                        <p>对家庭宽带、移动网络、办公 Wi-Fi 及高限制网络具备更强适配能力，连接成功率更高。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>真人客服永不失联</h3>
+                        <p>提供持续在线的人工服务与售后保障，安装、使用、续费与故障处理都有专人跟进。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section network-section" id="network">
+                <div class="section-intro">
+                    <span class="section-label">网络矩阵</span>
+                    <h2>全球覆盖、多协议支持，速度与稳定一起拉满</h2>
+                    <p>通过多协议引擎、智能优选逻辑与全球节点协同机制，让不同地区、不同运营商、不同场景都能保持顺畅。</p>
+                </div>
+
+                <div class="network-layout">
+                    <article class="network-panel stack-panel">
+                        <div class="panel-heading">
+                            <span>Protocol Stack</span>
+                            <strong>多协议智能协商</strong>
+                        </div>
+                        <div class="protocol-list">
+                            <span>WireGuard</span>
+                            <span>OpenVPN</span>
+                            <span>IKEv2</span>
+                            <span>Stealth Tunnel</span>
+                            <span>Smart UDP</span>
+                            <span>Adaptive TCP</span>
+                        </div>
+                        <p>系统会根据地区网络质量、丢包率、延迟与限制程度，自动协商更合适的连接方式，减少人工切换成本。</p>
+                    </article>
+
+                    <article class="network-panel coverage-panel">
+                        <div class="panel-heading">
+                            <span>Coverage Matrix</span>
+                            <strong>全球多节点智能接入</strong>
+                        </div>
+                        <div class="coverage-metrics">
+                            <div>
+                                <strong>6+</strong>
+                                <span>大洲覆盖</span>
+                            </div>
+                            <div>
+                                <strong>24h</strong>
+                                <span>质量监测</span>
+                            </div>
+                            <div>
+                                <strong>99.99%</strong>
+                                <span>骨干可用性目标</span>
+                            </div>
+                            <div>
+                                <strong>24/7</strong>
+                                <span>售后响应</span>
+                            </div>
+                        </div>
+                        <p>无论是影音解锁、跨境沟通、远程办公还是高频切换场景，都能获取更快、更稳、更低延迟的接入体验。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section downloads-section" id="downloads">
+                <div class="section-intro">
+                    <span class="section-label">客户端下载</span>
+                    <h2>自动识别设备，优先推荐最佳安装入口</h2>
+                    <p>支持 Windows、macOS、Android、iOS。每个平台都保留独立更新日志入口，版本变化一目了然。</p>
+                </div>
+
+                <div class="downloads-grid">
+                    <article
+                        class="download-card"
+                        data-platform="android"
+                        data-device-label="Android 设备"
+                        data-download-target="android"
+                        data-download-label-prefix="推荐下载 Android"
+                        data-version-target="android"
+                        data-version-prefix="最新版本"
+                        data-recommendation="已识别为 Android 设备，推荐直接下载最新 APK 客户端。"
+                    >
+                        <div class="download-head">
+                            <div>
+                                <span class="platform-icon">A</span>
+                                <h3>Android</h3>
+                            </div>
+                            <span class="recommend-badge">可下载</span>
+                        </div>
+                        <p class="platform-version">最新版本</p>
+                        <p class="platform-description">适合手机、平板与 Android 大屏设备，安装直接、启动快速、连接效率更高。</p>
+                        <ul class="platform-points">
+                            <li>极速接入全球节点</li>
+                            <li>复杂网络下稳定性更强</li>
+                            <li>适合高频移动场景</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="download-link" href="#" data-platform-target="android">下载 APK</a>
+                            <a class="platform-link" href="./changelog/android.html">更新日志</a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="download-card"
+                        data-platform="ios"
+                        data-device-label="iPhone / iPad"
+                        data-download-target="ios-web"
+                        data-download-label="推荐进入 iOS 安装入口"
+                        data-version-target="ios-web"
+                        data-recommendation="已识别为 iOS 设备，推荐进入 iOS 安装入口，并可查看海外 App Store 指引。"
+                    >
+                        <div class="download-head">
+                            <div>
+                                <span class="platform-icon">i</span>
+                                <h3>iOS</h3>
+                            </div>
+                            <span class="recommend-badge">可下载</span>
+                        </div>
+                        <p class="platform-version">安装入口</p>
+                        <p class="platform-description">提供 iOS 安装入口与使用指引，适合 iPhone、iPad 用户快速接入与备用切换。</p>
+                        <ul class="platform-points">
+                            <li>适配 Safari 与移动访问</li>
+                            <li>支持网页版快速启动</li>
+                            <li>保留安装帮助入口</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="download-link" href="#" data-platform-target="ios-web">Web入口</a>
+                            <a class="platform-link" href="./changelog/ios.html">更新日志</a>
+                            <a class="platform-link subtle" href="#" data-platform-target="ios-appstore">AppStore入口</a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="download-card"
+                        data-platform="windows"
+                        data-device-label="Windows PC"
+                        data-download-target="windows"
+                        data-download-label-prefix="推荐下载 Windows"
+                        data-version-target="windows"
+                        data-version-prefix="最新版本"
+                        data-recommendation="已识别为 Windows 设备，推荐下载 EXE 客户端获得完整桌面体验。"
+                    >
+                        <div class="download-head">
+                            <div>
+                                <span class="platform-icon">W</span>
+                                <h3>Windows</h3>
+                            </div>
+                            <span class="recommend-badge">可下载</span>
+                        </div>
+                        <p class="platform-version">最新版本</p>
+                        <p class="platform-description">面向桌面办公与重度使用场景打造，高并发、多窗口和长时间连接表现更强。</p>
+                        <ul class="platform-points">
+                            <li>适合办公与影音场景</li>
+                            <li>支持长时稳定运行</li>
+                            <li>桌面交互更完整</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="download-link" href="#" data-platform-target="windows">下载 EXE</a>
+                            <a class="platform-link" href="./changelog/windows.html">更新日志</a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="download-card"
+                        data-platform="macos"
+                        data-device-label="macOS 设备"
+                        data-download-target="macos"
+                        data-download-label-prefix="推荐下载 macOS"
+                        data-version-target="macos"
+                        data-version-prefix="最新版本"
+                        data-recommendation="已识别为 macOS 设备，推荐下载 PKG 安装包以获得更顺滑的桌面体验。"
+                    >
+                        <div class="download-head">
+                            <div>
+                                <span class="platform-icon">M</span>
+                                <h3>macOS</h3>
+                            </div>
+                            <span class="recommend-badge">可下载</span>
+                        </div>
+                        <p class="platform-version">最新版本</p>
+                        <p class="platform-description">为 MacBook 与 iMac 用户优化连接效率与系统兼容性，适合日常办公与跨境协作。</p>
+                        <ul class="platform-points">
+                            <li>安装便捷，系统兼容好</li>
+                            <li>适合远程与创作流程</li>
+                            <li>多协议智能切换</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="download-link" href="#" data-platform-target="macos">下载 PKG</a>
+                            <a class="platform-link" href="./changelog/macos.html">更新日志</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section support-section" id="support">
+                <div class="section-intro">
+                    <span class="section-label">服务保障</span>
+                    <h2>真人客服在线，永不失联，售后无忧</h2>
+                    <p>从首次安装到后续使用，神灯 VPN 提供持续跟进的人工服务能力，让每一次连接都有人兜底。</p>
+                </div>
+
+                <div class="support-grid">
+                    <article class="support-card">
+                        <h3>秒级响应</h3>
+                        <p>安装失败、节点异常、网络波动、支付续费等问题均可快速跟进处理。</p>
+                    </article>
+                    <article class="support-card">
+                        <h3>持续售后</h3>
+                        <p>不是一次性客服，而是全流程服务。遇到设备迁移和网络变化也能继续协助。</p>
+                    </article>
+                    <article class="support-card">
+                        <h3>全球用户导向</h3>
+                        <p>面向跨地区访问与不同终端环境设计，帮助用户以更低成本获取稳定连接体验。</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div>
+                <strong>神灯 VPN</strong>
+                <p>Global Secure Access for every device.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#downloads">下载中心</a>
+                <a href="./changelog/android.html">Android 日志</a>
+                <a href="./changelog/ios.html">iOS 日志</a>
+                <a href="./changelog/windows.html">Windows 日志</a>
+                <a href="./changelog/macos.html">macOS 日志</a>
+            </div>
+        </footer>
     </div>
+
+    <script>
+        (function () {
+            var platformTargets = {
+                windows: {
+                    url: "https://github.com/shendeng88/sd/releases/download/shendeng-latest-exe/shendeng-V3.0.0-24.exe",
+                    version: "v3.0.0"
+                },
+                macos: {
+                    url: "https://github.com/shendeng88/sd/releases/download/shendeng-latest-pkg/shendeng-v2.3.0-71.pkg",
+                    version: "v2.3.0"
+                },
+                android: {
+                    url: "https://github.com/shendeng88/sd/raw/main/file/shendeng-v4.0.0-31.apk",
+                    version: "v4.0.0"
+                },
+                "ios-web": {
+                    url: "./web/index.html",
+                    version: "安装入口 / Web App"
+                },
+                "ios-appstore": {
+                    url: "./help/index.html",
+                    version: "AppStore入口"
+                }
+            };
+            var cards = Array.prototype.slice.call(document.querySelectorAll(".download-card"));
+            var primaryDownload = document.getElementById("primaryDownload");
+            var detectedDevice = document.getElementById("detectedDevice");
+            var recommendationText = document.getElementById("recommendationText");
+            var userAgent = navigator.userAgent || "";
+            var platform = navigator.platform || "";
+            var touchPoints = navigator.maxTouchPoints || 0;
+
+            function applyPlatformTargets() {
+                Array.prototype.forEach.call(document.querySelectorAll("[data-platform-target]"), function (element) {
+                    var targetKey = element.getAttribute("data-platform-target");
+                    var targetInfo = platformTargets[targetKey];
+
+                    if (targetInfo && targetInfo.url) {
+                        element.setAttribute("href", targetInfo.url);
+                    }
+                });
+
+                cards.forEach(function (card) {
+                    var targetKey = card.dataset.downloadTarget;
+                    var targetInfo = targetKey && platformTargets[targetKey];
+                    var versionKey = card.dataset.versionTarget || targetKey;
+                    var versionInfo = versionKey && platformTargets[versionKey];
+                    var versionElement = card.querySelector(".platform-version");
+                    var versionPrefix = card.dataset.versionPrefix;
+                    var labelPrefix = card.dataset.downloadLabelPrefix;
+
+                    if (targetInfo && targetInfo.url) {
+                        card.dataset.downloadUrl = targetInfo.url;
+                    }
+
+                    if (labelPrefix && targetInfo && targetInfo.version) {
+                        card.dataset.downloadLabel = labelPrefix + " " + targetInfo.version;
+                    }
+
+                    if (versionElement && versionInfo && versionInfo.version) {
+                        versionElement.textContent = versionPrefix ? versionPrefix + " " + versionInfo.version : versionInfo.version;
+                    }
+                });
+            }
+
+            function detectPlatform() {
+                if (/Android/i.test(userAgent)) {
+                    return "android";
+                }
+
+                if (/iPhone|iPad|iPod/i.test(userAgent) || (platform === "MacIntel" && touchPoints > 1)) {
+                    return "ios";
+                }
+
+                if (/Win/i.test(platform) || /Windows/i.test(userAgent)) {
+                    return "windows";
+                }
+
+                if (/Mac/i.test(platform) || /Mac OS X/i.test(userAgent)) {
+                    return "macos";
+                }
+
+                if (/Mobile/i.test(userAgent)) {
+                    return "android";
+                }
+
+                return "windows";
+            }
+
+            function applyRecommendation(targetPlatform) {
+                var activeCard = cards.find(function (card) {
+                    return card.dataset.platform === targetPlatform;
+                }) || cards[0];
+
+                cards.forEach(function (card) {
+                    var isActive = card === activeCard;
+                    var badge = card.querySelector(".recommend-badge");
+                    card.classList.toggle("is-recommended", isActive);
+                    if (badge) {
+                        badge.textContent = isActive ? "为当前设备推荐" : "可下载";
+                    }
+                });
+
+                detectedDevice.textContent = "已识别设备：" + activeCard.dataset.deviceLabel;
+                recommendationText.textContent = activeCard.dataset.recommendation;
+                primaryDownload.href = activeCard.dataset.downloadUrl;
+                primaryDownload.textContent = activeCard.dataset.downloadLabel;
+                primaryDownload.setAttribute("aria-label", activeCard.dataset.downloadLabel);
+            }
+
+            applyPlatformTargets();
+            applyRecommendation(detectPlatform());
+        })();
+    </script>
 </body>
 </html>

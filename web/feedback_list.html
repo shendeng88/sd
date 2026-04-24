@@ -1,9 +1,14 @@
 <div class="layuimini-container layuimini-page-anim">
   <div class="layuimini-main-feedback-list">
-    <div class="title">回复列表</div>
+    <div class="title page-header">
+      <button type="button" class="page-back" aria-label="返回">
+        <span class="back-icon" aria-hidden="true"></span>
+      </button>
+      <span class="page-title">回复列表</span>
+    </div>
     <div class="top">
       <div class="layui-tab layui-tab-brief">
-        <ul class="layui-tab-title">
+        <ul class="layui-tab-title" style="border-bottom-width: 0px;border-bottom-style:none;">
           <li>未回复</li>
           <li class="layui-this">已回复</li>
         </ul>
@@ -24,8 +29,22 @@
   layui.use(['form', 'table', 'miniPage','element'], function () {
     var $ = layui.jquery,
             layer = layui.layer,
+            miniPage = layui.miniPage,
             element = layui.element,
             form = layui.form;
+
+    function goBack(defaultPage) {
+      if (window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+      let now = parseInt(new Date().getTime() / 1000);
+      miniPage.hashChange(defaultPage + '?ts=' + now);
+    }
+
+    $(".layuimini-main-feedback-list .page-back").on('click', function () {
+      goBack('feedback.html');
+    });
 
     var loadIndex = layer.load(2, {shade: [0.2,'#000000']});
     axios({

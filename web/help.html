@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css" href="./css/help.css">
+<link rel="stylesheet" type="text/css" href="./css/theme-tech.css">
 <div class="layuimini-container layuimini-page-anim">
     <div class="layuimini-main-help">
-        <div class="title">
+        <div class="title page-intro">
             因国内政策的原因，App Store 中国区的 ID 无法正常下载神灯VPN应用，需要使用海外 ID 才能完成下载。具体方法如下：
         </div>
         <div class="change">
@@ -12,7 +13,7 @@
             <div class="appstore select" style="border-radius: 0 11px 11px 0;">
                 <div class="fuli">下载有福利</div>
                 <div style="font-weight: bold; line-height: 28px;">IOS方案教程</div>
-                <div style="color: #a3a3a3;">须使用海外Apple ID下载，登录即赠送15天VIP时长；</div>
+                <div style="color: #a3a3a3;">须使用海外Apple ID下载</div>
             </div>
         </div>
 
@@ -42,7 +43,7 @@
             </div>
             <div class="appstore">
                 <div class="title">iOS客户端下载教程</div>
-                <div style="background-color: rgb(208, 237, 239);font-size: 13px;padding: 11px;">我们提供了三种使用海外ID下载应用的方法，具体如下：</div>
+                <div class="appstore-intro">我们提供了三种使用海外ID下载应用的方法，具体如下：</div>
 
                 <div class="layui-collapse">
                     <div class="layui-colla-item">
@@ -353,11 +354,24 @@
     </div>
     <script>
         let channel = '';
-        layui.use(['form'], function() {
+        layui.use(['form', 'miniPage'], function() {
             var form = layui.form,
                 layer = layui.layer,
-                $ = layui.jquery;
+                $ = layui.jquery,
+                miniPage = layui.miniPage;
 
+            function goBack(defaultPage) {
+                if (window.history.length > 1) {
+                    window.history.back();
+                    return;
+                }
+                let now = parseInt(new Date().getTime() / 1000);
+                miniPage.hashChange(defaultPage + '?ts=' + now);
+            }
+
+            $(".layuimini-main-help .page-back").on('click', function () {
+                goBack('user.html');
+            });
 
             $(".change > div").on('click', function (){
                 $(".change > div").removeClass('select');

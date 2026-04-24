@@ -19,7 +19,7 @@ layui.define(["jquery", "miniMenu", "element","miniPage"], function (exports) {
 
     var homeInfo = {
         "title": "",
-        "href": "user.html",
+        "href": "route.html",
     }
 
     var menuHead = "";//"/h5/index.html#/";
@@ -44,6 +44,14 @@ layui.define(["jquery", "miniMenu", "element","miniPage"], function (exports) {
             "id":3,
             "title":"线路列表",
             "href":menuHead+"route.html",
+            "select":"",
+            "target":"",
+            "child": null,
+        },
+        {
+            "id":4,
+            "title":"使用教程",
+            "href":menuHead+"help.html",
             "select":"",
             "target":"",
             "child": null,
@@ -90,7 +98,7 @@ layui.define(["jquery", "miniMenu", "element","miniPage"], function (exports) {
             }
 
             if (!isSelect){
-                menuInfo[0].select = "layui-this";
+                menuInfo[2].select = "layui-this";
             }
 
             miniAdmin.renderClear(options.clearUrl);

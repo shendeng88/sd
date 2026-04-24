@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="./css/route.css">
     <link rel="stylesheet" type="text/css" href="./css/update-password.css">
     <link rel="stylesheet" href="./css/mescroll.min.css" media="all">
+    <link rel="stylesheet" href="./css/theme-tech.css" media="all">
     <link rel="apple-touch-icon" sizes="108x108" href="./images/icon-cp.png">
     <link rel="icon" href="./favicon.ico">
     <!--[if lt IE 9]>
@@ -36,31 +37,6 @@
 </head>
 <body class="layui-layout-body layuimini-all">
 <div class="layui-layout layui-layout-admin">
-
-    <div class="index-header" style="background-color: #393D41;">
-        <div class="layui-header header">
-            <div class="logo" style="float: left;height: 50px;line-height: 50px;margin: 0 0 0 19px;font-size: 15px;font-weight: bold;color: white;">
-<!--                <img src="./images/logo.png"/>-->
-                <span>神灯</span>
-            </div>
-
-            <div class="layuimini-header-content">
-                <ul class="layui-nav layui-layout-right" style="margin-right: 17px;">
-                    <li class="layui-nav-item layui-this">
-                        <a href="javascript:;" class="center"><i>个人中心</i></a>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;" class="buy"><i>购买</i></a>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;" class="route"><i>线路列表</i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
     <div>
         <div class="layui-body">
             <div class="mescroll"  id="mescroll-3">
@@ -71,18 +47,25 @@
         </div>
     </div>
 
-
-
     <div style="z-index: 900;">
         <div class="footer">
             <div class="nav">
-                <span class="feedback">问题反馈<span id="feedback-id" style="margin-left: 3px;"></span></span>
-                <i></i>
-                <span class="contact">联系我们</span>
-                <i></i>
-                <span class="broadcast">信息公告<span id="broadcast-id" style="margin-left: 3px;"></span></span>
-                <i></i>
-                <span class="tohelp">下载指南</span>
+                <span class="route select">
+                    <i class="fa fa-random tab-icon"></i>
+                    <em class="tab-label">线路</em>
+                </span>
+                <span class="guide">
+                    <i class="fa fa-book tab-icon"></i>
+                    <em class="tab-label">使用教程</em>
+                </span>
+                <span class="buy">
+                    <i class="fa fa-shopping-bag tab-icon"></i>
+                    <em class="tab-label">购买</em>
+                </span>
+                <span class="mine">
+                    <i class="fa fa-user-o tab-icon"></i>
+                    <em class="tab-label">我的</em>
+                </span>
             </div>
 
             <div></div>
@@ -114,22 +97,6 @@
                 <div class="id"></div>
                 <div class="desc"></div>
                 <div class="show-more">查看更多</div>
-            </div>
-        </div>
-    </div>
-    <div class="warning-show">
-        <div class="warning-container">
-            <div>
-                <button class="close"><img src="images/close.png"/></button>
-                <div class="title">重要通知</div>
-                <div class="desc">
-                    <span style="color: orangered">Outline已在中国区下架</span><br/>已下载用户目前不影响使用，但请尽快迁移到客户端，享受更完善的服务，待用户迁移完毕后此客户端不再维护！<br/>
-                    现在下载神灯IOS客户端您可以：<br/>
-                    1.赠送15天VIP时长（在IOS客户端登录即到账）；<br/>
-                    2.享受海量高速专线，线路更稳定，更快速；<br/>
-                    3.享受24/7的客服服务和技术支持，全方位保障您的使用体验；<br/>
-                </div>
-                <button class="toHelp" style="width: 295px;height: 40px; background-color: #2468F2;color: white;border-radius: 2px;">查看下载教程</button>
             </div>
         </div>
     </div>
@@ -174,15 +141,40 @@
 
         let deviceOs = layui.data('deviceInfo').device_os;
         if(deviceOs != undefined && deviceOs == "ios") {
-            postMessage(JSON.stringify({type: "barColor", data: "\\#393D41"}));
+            postMessage(JSON.stringify({type: "barColor", data: "\\#1C1E28"}));
             postMessage(JSON.stringify({type: "statusBarStyle", data:"lightContent"}));
         }
 
+        function syncFooterTab(page) {
+            var currentPage = page || (((window.location.hash || '').replace(/^#\/?/, '')).split('?')[0] || 'route.html');
+            var tabMap = {
+                "route.html": ".route",
+                "help.html": ".guide",
+                "buy.html": ".buy",
+                "user.html": ".mine",
+                "update_password.html": ".mine",
+                "broadcast.html": ".mine",
+                "feedback.html": ".mine",
+                "feedback_list.html": ".mine"
+            };
+
+            $(".footer .nav span").removeClass('select');
+            if (tabMap[currentPage] != undefined) {
+                $(".footer " + tabMap[currentPage]).addClass('select');
+            } else {
+                $(".footer .route").addClass('select');
+            }
+        }
+
         miniAdmin.render(options);
+        syncFooterTab();
+        $(window).on('hashchange', function () {
+            syncFooterTab();
+        });
 
         var warning = layui.data('warning').info;
         if(warning == undefined || warning != 1){
-            $(".warning-show").show();
+            // $(".warning-show").show();
             // layui.data('warning',{key:"info",value: 1});
         }
 
@@ -193,12 +185,6 @@
         if(uid==0){
             uid = layui.data('uid').uid;
         }
-        window.intercomSettings = {
-            api_base: "https://api-iam.intercom.io",
-            app_id: "kbx8admj",
-            user_id: 'web-sd-'+uid,
-        };
-        Intercom('update', {"user_id": 'web-sd-'+uid});
 
         $('.login-out').on("click", function () {
             layui.data("token",null);
@@ -212,6 +198,26 @@
             layui.data('help',{key:"info",value: 1});
             $(".help").toggle();
         });
+        function switchFooterTab(target, page) {
+            $(".footer .nav span").removeClass('select');
+            $(target).addClass('select');
+            let now = parseInt(new Date().getTime()/1000);
+            miniPage.hashChange(page + "?ts=" + now);
+        }
+
+        $('.footer .route').on('click', function () {
+            switchFooterTab(this, "route.html");
+        });
+        $('.footer .guide').on('click', function () {
+            switchFooterTab(this, "help.html");
+        });
+        $('.footer .buy').on('click', function () {
+            switchFooterTab(this, "buy.html");
+        });
+        $('.footer .mine').on('click', function () {
+            switchFooterTab(this, "user.html");
+        });
+
         $('.footer .contact').on('click', function () {
             let now = parseInt(new Date().getTime()/1000);
             miniPage.hashChange("contact.html?ts="+now);

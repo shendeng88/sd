@@ -322,6 +322,36 @@ function toPercent(num, total) {
 
 }
 
+var API_URLS = [
+    "https://app.sdapid.com/api/web",
+    "https://d3fo97rjzx0xn8.cloudfront.net/api/web",
+    "https://api.runxish.com/api/web",
+]
+
+async function initAPIUrl() {
+    var cached = getCookie('api_url');
+    if (cached) {
+        API_URL = cached;
+        return;
+    }
+    for (var i = 0; i < API_URLS.length; i++) {
+        try {
+            var controller = new AbortController();
+            var timer = setTimeout(function() { controller.abort(); }, 5000);
+            var res = await fetch(API_URLS[i] + '/checkout', { signal: controller.signal });
+            clearTimeout(timer);
+            var text = await res.text();
+            if (text.trim() === 'ok') {
+                API_URL = API_URLS[i];
+                setCookie('api_url', API_URL);
+                return;
+            }
+        } catch (e) {}
+    }
+    // 所有域名均不可用，保持默认值
+}
+
+
 var $ = layui.$;
 $(document).ready(function () {
     console.log("start")
@@ -330,4 +360,6 @@ $(document).ready(function () {
         var md5v = md5(navigator.userAgent);
         layui.data('deviceId',{key:'id',value: "web"+md5v});
     }
+
+    initAPIUrl();
 })

@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="./css/route.css">
     <link rel="stylesheet" type="text/css" href="./css/update-password.css">
     <link rel="stylesheet" href="./css/mescroll.min.css" media="all">
+    <link rel="stylesheet" href="./css/theme-tech.css" media="all">
     <link rel="apple-touch-icon" sizes="108x108" href="./images/icon-cp.png">
     <link rel="icon" href="./favicon.ico">
     <!--[if lt IE 9]>
@@ -105,7 +106,7 @@
 
         let deviceOs = layui.data('deviceInfo').device_os;
         if(deviceOs != undefined && deviceOs == "ios") {
-            postMessage(JSON.stringify({type: "barColor", data: "\\#393D41"}));
+            postMessage(JSON.stringify({type: "barColor", data: "\\#1C1E28"}));
             postMessage(JSON.stringify({type: "statusBarStyle", data:"lightContent"}));
         }
 
