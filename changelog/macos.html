@@ -1,154 +1,157 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>macOS 更新日志</title>
-<style>
-  :root {
-    --bg: #1c1e28;
-    --panel: rgba(33, 36, 49, 0.9);
-    --text: #f7f2e8;
-    --muted: #b8b2a5;
-    --accent: #e5b778;
-    --line: rgba(229, 183, 120, 0.22);
-    --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-  }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>发布日志</title>
 
+<style>
   * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     -webkit-tap-highlight-color: transparent;
   }
-
   body {
-    min-height: 100vh;
-    font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
-    color: var(--text);
-    background:
-      radial-gradient(circle at top left, rgba(229, 183, 120, 0.16), transparent 24%),
-      radial-gradient(circle at 85% 12%, rgba(86, 120, 255, 0.14), transparent 22%),
-      linear-gradient(180deg, #171922 0%, #1c1e28 100%);
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 42px 42px;
-    mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
-    pointer-events: none;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #222;
   }
 
   .container {
-    width: min(860px, calc(100% - 28px));
-    margin: 0 auto;
-    padding: 56px 0 72px;
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 0 18px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    color: var(--accent);
-    background: rgba(229, 183, 120, 0.08);
-    text-decoration: none;
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 20px;
   }
 
   h1 {
-    margin-top: 18px;
-    font-size: clamp(2.3rem, 6vw, 3.6rem);
-    letter-spacing: 0.04em;
-  }
-
-  .lead {
-    max-width: 680px;
-    margin-top: 14px;
-    color: var(--muted);
-    line-height: 1.8;
+    font-size: 28px;
+    margin-bottom: 40px;
   }
 
   .timeline {
     position: relative;
-    margin-top: 36px;
-    padding-left: 28px;
+    padding-left: 30px;
   }
 
   .timeline::before {
     content: "";
     position: absolute;
-    left: 8px;
-    top: 8px;
-    bottom: 8px;
+    left: 10px;
+    top: 0;
+    bottom: 0;
     width: 2px;
-    background: linear-gradient(var(--accent), transparent);
+    background: linear-gradient(#c7d2fe, transparent);
   }
 
   .item {
     position: relative;
-    margin-bottom: 22px;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s forwards;
+  }
+
+  .item:nth-child(2) { animation-delay: 0.15s; }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .dot {
     position: absolute;
-    left: -24px;
-    top: 18px;
-    width: 12px;
-    height: 12px;
+    left: -2px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 18px rgba(229, 183, 120, 0.45);
+    background: #6366f1;
+    box-shadow: 0 0 10px rgba(99,102,241,0.6);
+    transition: all 0.3s;
+  }
+
+  .item:hover .dot {
+    transform: scale(1.4);
   }
 
   .card {
-    padding: 22px 22px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 22px;
-    background: var(--panel);
-    box-shadow: var(--shadow);
+    position: relative;
+    background: rgba(255,255,255,0.65);
     backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-touch-callout: none;
   }
 
   .meta {
-    color: var(--accent);
-    font-size: 0.92rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+
+  .title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .tags {
+    margin-bottom: 10px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    margin-right: 6px;
+  }
+
+  .new { background: #e0e7ff; color: #3730a3; }
+  .opt { background: #dcfce7; color: #166534; }
+  .fix { background: #fee2e2; color: #991b1b; }
+
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s;
+    opacity: 0;
+  }
+
+  .content.open {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 10px;
   }
 
   ul {
-    margin-top: 14px;
+    margin: 0;
     padding-left: 18px;
-    color: var(--muted);
-    line-height: 1.8;
+    font-size: 14px;
+    color: #555;
   }
 
-  @media (max-width: 640px) {
-    .container {
-      padding-top: 40px;
-    }
-  }
 </style>
 </head>
-<body>
-  <div class="container">
-    <a class="back-link" href="../index.html">返回下载中心</a>
-    <h1>macOS What's New</h1>
-    <p class="lead">这里展示 macOS 客户端的版本更新与体验迭代，方便快速查看安装兼容性、网络稳定性与桌面交互层面的改进。</p>
 
-    <div class="timeline">
-      <div class="item">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="meta">V2.3.0 · 2026-04-18</div>
+<body>
+
+<div class="container">
+  <h1>What's New</h1>
+
+  <div class="timeline">
+
+    <div class="item">
+      <div class="dot"></div>
+      <div class="card">
+        <div class="meta">v2.3.0 · 2026-04-18</div>
+        <div class="content open">
           <ul>
             <li>1. 新增手机号换绑入口</li>
             <li>2. 优化网络稳定性</li>
@@ -158,6 +161,24 @@
         </div>
       </div>
     </div>
+
   </div>
+</div>
+
+<script>
+  document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => {
+      const content = card.querySelector(".content");
+      content.classList.toggle("open");
+    });
+
+    card.addEventListener("mousemove", e => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--x", e.clientX - rect.left + "px");
+      card.style.setProperty("--y", e.clientY - rect.top + "px");
+    });
+  });
+</script>
+
 </body>
 </html>
